@@ -149,9 +149,9 @@ settings.LocalDatastore = false				 -- If this is turned on, a mock DataStore wi
 settings.Storage = game:GetService("ServerStorage") -- Where things like tools are stored
 settings.RecursiveTools = true					 -- Whether tools that are included in sub-containers within settings.Storage will be available via the :give command (useful if your tools are organized into multiple folders)
 
-settings.Theme = "Default"				-- UI theme;
-settings.MobileTheme = "Mobilius"		-- Theme to use on mobile devices; Some UI elements are disabled
-settings.DefaultTheme = "Default" -- Theme to be used as a replacement for "Default". The new replacement theme can still use "Default" as its Base_Theme however any other theme that references "Default" as its redirects to this theme.
+settings.Theme = "Rounded"				-- UI theme;
+settings.MobileTheme = "Rounded"		-- Theme to use on mobile devices; Some UI elements are disabled
+settings.DefaultTheme = "Rounded" -- Theme to be used as a replacement for "Default". The new replacement theme can still use "Default" as its Base_Theme however any other theme that references "Default" as its redirects to this theme.
 
 																																																																																				--[[
 	**HOW TO ADD ADMINISTRATORS:**
@@ -175,14 +175,15 @@ settings.DefaultTheme = "Default" -- Theme to be used as a replacement for "Defa
 settings.Ranks = {
 	["Moderators"] = {
 		Level = 100;
-		Users = {"Group:35704052:229"
+		Users = {
+			"Group:35704052:229",
 			--// Add users here
 		};
 	};
 
 	["Admins"] = {
 		Level = 200;
-		Users = {"Group:35704052:230", "Tec_f3x"
+		Users = {"Group:35704052:230",
 			--// Add users here
 		};
 	};
@@ -203,7 +204,7 @@ settings.Ranks = {
 };
 
 --// Use the below table to set command permissions; Commented commands are included for example purposes
-settings.Permissions = {"btools:Admins","ins:HeadAdmins","insert:HeadAdmins","insclear:HeadAdmins","sm:Creators",
+settings.Permissions = {"btools:Creators","ins:HeadAdmins","insert:HeadAdmins","insclear:HeadAdmins","sm:Creators","m:Creators","dex:Development Team",
 	-- "ff:HeadAdmins"; --// Changes :ff to HeadAdmins and higher (HeadAdmins = Level 300 by default)
 	-- "kill:300"; --// Changes :kill to level 300 and higher (Level 300 = HeadAdmins by default)
 	-- "ban:200,300" --// Makes it so :ban is only usable by levels 200 and 300 specifically (nothing higher or lower or in between)
@@ -277,15 +278,15 @@ settings.CommandCooldowns = {
 ]]	
 }
 
-settings.HttpWait = 60					-- How long things that use the HttpService will wait before updating again
-settings.Trello_Enabled = false			-- Are the Trello features enabled?
-settings.Trello_Primary = ""			-- Primary Trello board
+settings.HttpWait = 2					-- How long things that use the HttpService will wait before updating again
+settings.Trello_Enabled = true			-- Are the Trello features enabled?
+settings.Trello_Primary = "M6u15uMT"			-- Primary Trello board
 settings.Trello_Secondary = {""}			-- Secondary Trello boards (read-only)		Format: {"BoardID";"BoardID2","etc"}
-settings.Trello_AppKey = ""				-- Your Trello AppKey						  	Link: https://trello.com/app-key
-settings.Trello_Token = ""				-- Trello token (DON'T SHARE WITH ANYONE!)    Link: https://trello.com/1/connect?name=Trello_API_Module&response_type=token&expires=never&scope=read,write&key=YOUR_APP_KEY_HERE
-settings.Trello_HideRanks = false	-- If true, Trello-assigned ranks won't be shown in the admins list UI (accessed via :admins)
+settings.Trello_AppKey = "616665bfea9a8a22730c56f46b322570"				-- Your Trello AppKey						  	Link: https://trello.com/app-key
+settings.Trello_Token = "3a49a619f3786971ba38a659ab491db31d750b6eb0787dc4a44e69b8f9d733a3"				-- Trello token (DON'T SHARE WITH ANYONE!)    Link: https://trello.com/1/connect?name=Trello_API_Module&response_type=token&expires=never&scope=read,write&key=YOUR_APP_KEY_HERE
+settings.Trello_HideRanks = true	-- If true, Trello-assigned ranks won't be shown in the admins list UI (accessed via :admins)
 
-settings.G_API = true					-- If true, allows other server scripts to access certain functions described in the API module through _G.Adonis
+settings.G_API = false					-- If true, allows other server scripts to access certain functions described in the API module through _G.Adonis
 settings.G_Access = false				-- If enabled, allows other scripts to access Adonis using _G.Adonis.Access; Scripts will still be able to do things like _G.Adonis.CheckAdmin(player)
 settings.G_Access_Key = "Example_Key"	-- Key required to use the _G access API; Example_Key will not work for obvious reasons
 settings.G_Access_Perms = "Read" 		-- Access perms
@@ -322,7 +323,7 @@ settings.SystemTitle = "UK:RP Dover - System Message"	-- Title to display in :sm
 
 settings.MaxLogs = 5000			-- Maximum logs to save before deleting the oldest
 settings.SaveCommandLogs = true	-- If command logs are saved to the datastores
-settings.Notification = true	-- Whether or not to show the "You're an admin" and "Updated" notifications
+settings.Notification = false	-- Whether or not to show the "You're an admin" and "Updated" notifications
 settings.SongHint = true		-- Display a hint with the current song name and ID when a song is played via :music
 settings.TopBarShift = false	-- By default hints and notifications will appear from the top edge of the window. Set this to true if you don't want hints/notifications to appear in that region.
 settings.Messages = {}			-- A list of notification messages to show HeadAdmins and above on join
@@ -331,31 +332,31 @@ settings.AutoCleanDelay = 60	-- Time between auto cleans
 settings.AutoBackup = true 	-- Run :backupmap automatically when the server starts. To restore the map, run :restoremap
 
 settings.Console = true				-- Whether the command console is enabled
-settings.Console_AdminsOnly = false -- If true, only admins will be able to access the console
+settings.Console_AdminsOnly = true -- If true, only admins will be able to access the console
 
 settings.HelpSystem = true		-- Allows players to call admins for help using !help
-settings.HelpButton = true		-- Shows a little help button in the bottom right corner.
+settings.HelpButton = false		-- Shows a little help button in the bottom right corner.
 settings.HelpButtonImage = "rbxassetid://14601006556" -- Sets the image used for the Adonis help button above.
 
-settings.DonorCapes = true 		-- Donors get to show off their capes; Not disruptive :)
-settings.DonorCommands = true	-- Show your support for the script and let donors use harmless commands like !sparkles
+settings.DonorCapes = false 		-- Donors get to show off their capes; Not disruptive :)
+settings.DonorCommands = false	-- Show your support for the script and let donors use harmless commands like !sparkles
 settings.LocalCapes = false	 	-- Makes Donor capes local so only the donors see their cape [All players can still disable capes locally]
 
 settings.Detection = true			-- (Extremely important, makes all protection systems work) A global toggle for all the other protection settings
 settings.CheckClients = true		-- (Important, makes sure Adonis clients are connected to the server) Checks clients every minute or two to make sure they are still active
 
 settings.ExploitNotifications = true        -- Notify all moderators and higher-ups when a player is kicked or crashed from the AntiExploit
-settings.CharacterCheckLogs = false		-- If the character checks appear in exploit logs and exploit notifications
-settings.AntiNoclip = false			-- Attempts to detect noclipping and kills the player if found
-settings.AntiRootJointDeletion = false		-- Attempts to detect paranoid and kills the player if found
-settings.AntiMultiTool = false -- Prevents multitool and because of that many other exploits
-settings.AntiGod = false -- If a player does not respawn when they should have they get respawned
+settings.CharacterCheckLogs = true		-- If the character checks appear in exploit logs and exploit notifications
+settings.AntiNoclip = true			-- Attempts to detect noclipping and kills the player if found
+settings.AntiRootJointDeletion = true		-- Attempts to detect paranoid and kills the player if found
+settings.AntiMultiTool = true -- Prevents multitool and because of that many other exploits
+settings.AntiGod = true -- If a player does not respawn when they should have they get respawned
 -- settings.AntiHumanoidDeletion and settings.ProtectHats have been superseded Workspace.RejectCharacterDeletions 
 
 settings.AntiSpeed = true 			-- (Client-Sided) Attempts to detect speed exploits
-settings.AntiBuildingTools = false	-- (Client-Sided) Attempts to detect any HopperBin(s)/Building Tools added to the client
-settings.AntiAntiIdle = false 		-- (Client-Sided) Kick the player if they are using an anti-idle exploit. Highly useful for grinding/farming games
-settings.ExploitGuiDetection = false 		-- (Client-Sided) If any exploit GUIs are found in the CoreGui the exploiter gets kicked (If you use StarterGui:SetCore("SendNotification") with an image this will kick you)
+settings.AntiBuildingTools = true	-- (Client-Sided) Attempts to detect any HopperBin(s)/Building Tools added to the client
+settings.AntiAntiIdle = true 		-- (Client-Sided) Kick the player if they are using an anti-idle exploit. Highly useful for grinding/farming games
+settings.ExploitGuiDetection = true 		-- (Client-Sided) If any exploit GUIs are found in the CoreGui the exploiter gets kicked (If you use StarterGui:SetCore("SendNotification") with an image this will kick you)
 
 ---------------------
 -- END OF SETTINGS --
